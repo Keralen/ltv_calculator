@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Результаты обработки</title>
+</head>
+<body>
+    <h1>Результаты обработки</h1>
+    <table>
+        <tr>
+            <th>Email клиента</th>
+            <th>Дата первого заказа</th>
+            <th>Дни с начала заказа</th>
+            <th>Кумулятивная сумма заказов</th>
+        </tr>
+        {% for row in data.iterrows() %}
+            <tr>
+                <td>{{ row[1]['emailclient'] }}</td>
+                <td>{{ row[1]['first_order_date'] }}</td>
+                <td>{{ row[1]['days30_since_first_order'] }}</td>
+                <td>{{ row[1]['cumulative_payment_RUB'] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
